@@ -3,7 +3,9 @@
     "baseUrl": ".",
     "paths": {
       "@database": ["database/db.ts"],
-      "@cors": ["cors-middleware.ts"]
+      "@databaseAnimeApi": ["database/animamushi.ts"],
+      "@cors": ["cors-middleware.ts"],
+      "@components/*": ["components/*"]
     },
     "target": "es6",
     "lib": ["dom", "dom.iterable", "esnext"],
