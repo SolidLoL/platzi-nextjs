@@ -15,24 +15,18 @@ const allAnimes = async (req: NextApiRequest, res: NextApiResponse) => {
 
     const t = token();
     const Api = animamushi(t);
+    if (!Api) throw new Error("Api Empty Shit ");
+    const { Anime } = Api;
     const per_page = 10;
     const filters = {};
-    //const { data } = await Get(filters, per_page);
-    console.log(Api);
+    const { data } = await Anime?.Get(filters, per_page);
 
-    // Notice: We're manually setting the response object
-    // However Next.JS offers Express-like helpers :)
-    // https://nextjs.org/docs/api-routes/response-helpers
-    /* res.statusCode = 200;
-    res.setHeader("Content-Type", "application/json");
-    res.end(JSON.stringify({ data })); */
-    res.status(200).json({});
+    res.status(200).json(data);
   } catch (e) {
     console.error(e);
-    res.statusCode = 500;
-    res.end(
-      JSON.stringify({ length: 0, data: [], error: "Something went wrong" })
-    );
+    res
+      .status(500)
+      .json({ length: 0, data: [], error: "Something went wrong" });
   }
 };
 

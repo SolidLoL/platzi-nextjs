@@ -1,4 +1,4 @@
-import jwt, { JwtPayload } from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 import { API } from "@mattplays/aniapi";
 
 function animamushi(token: string) {

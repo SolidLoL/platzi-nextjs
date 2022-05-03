@@ -11,6 +11,9 @@ export default function Navbar() {
         <Link href="/about">
           <a>About</a>
         </Link>
+        <Link href="/anime">
+          <a>Anime</a>
+        </Link>
       </menu>
     </nav>
   )
