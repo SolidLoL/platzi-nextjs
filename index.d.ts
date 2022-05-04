@@ -32,7 +32,10 @@ type TAPIAvoResponse = {
   data: TProduct[];
   error?: string;
 };
-
+type TVideoProp = {
+  url: string;
+  file: Object;
+};
 /* anime */
 /* type TAnimeId = string;
 

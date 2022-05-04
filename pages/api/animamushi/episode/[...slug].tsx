@@ -24,13 +24,7 @@ const Episode = async (req: NextApiRequest, res: NextApiResponse) => {
 
     const per_page:number| undefined= 10;
     
-    
-    console.log("filters ",filters);
     const { data } = await Episode.Get(filters,undefined,per_page);
- 
-   /*  
-    console.log(data);
-    console.log(getParams) */
     
     res.status(200).json({data});
   } catch (e) {
