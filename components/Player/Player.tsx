@@ -86,14 +86,31 @@ const Player = ({video, video_headers}:Episode) => {
         .then(response => response.text())
         .then(result => console.log(result))
         .catch(error => console.log('error', error));
-     }
+      }
      useEffect(() => {
         requestMediaVideo();
-     }, []) */
-     
-  return ( 
+      }, []) */
+      
+      /* config={{
+          file:{
+          hlsOptions:{
+              licenseXhrSetup: function (xhr:any, url:string) {
+                      xhr.withCredentials = true;
+                      if (!xhr.readyState){
+                          xhr.setRequestHeader('Content-Type', 'application/vnd.apple.mpegurl');
+                          xhr.setRequestHeader(video_headers);
+                          xhr.open('POST', url, true);
+                          console.log(url)
+                      }
+                  }   
+              },
+          forceHLS: true,
+          }
+      }} */
+  
+    return ( 
       <>
-      <ReactPlayer 
+      {/* <ReactPlayer 
         url={video} 
         config={{
             file:{
@@ -101,7 +118,6 @@ const Player = ({video, video_headers}:Episode) => {
                 xhrSetup: function (xhr:any, url:string) {
                     console.log('url',url)
                     console.log('xhr',xhr)
-                    //xhr.withCredentials = true;
                     xhr.setRequestHeader(video_headers)
                     xhr.setRequestHeader('Content-Type', 'application/vnd.apple.mpegurl');
                     },   
@@ -114,23 +130,7 @@ const Player = ({video, video_headers}:Episode) => {
                 forceVideo: true,
             }
         }}
-        /* config={{
-            file:{
-            hlsOptions:{
-                licenseXhrSetup: function (xhr:any, url:string) {
-                        xhr.withCredentials = true;
-                        if (!xhr.readyState){
-                            xhr.setRequestHeader('Content-Type', 'application/vnd.apple.mpegurl');
-                            xhr.setRequestHeader(video_headers);
-                            xhr.open('POST', url, true);
-                            console.log(url)
-                        }
-                    }   
-                },
-            forceHLS: true,
-            }
-        }} */
-        playing />
+        playing /> */}
       </>
   )
 }
